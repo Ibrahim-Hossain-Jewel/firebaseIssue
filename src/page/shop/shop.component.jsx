@@ -3,7 +3,7 @@ import React from "react";
 import SHOP_DATA from "./shop.data";
 
 import CollectionPreview from "../../components/collection-preview/collection-preview.component";
-
+import '../../App.css';
 //file name and folder name never be as same.
 
 class ShopPage extends React.Component{

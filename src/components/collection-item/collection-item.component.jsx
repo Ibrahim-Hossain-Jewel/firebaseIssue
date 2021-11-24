@@ -7,7 +7,7 @@ const CollectionItem = ({ id, name, price, imageUrl }) => (
     <div
       className='image'
       style={{
-        backgroundImage: `${process.env.PUBLIC_URL}${imageUrl}`
+        backgroundImage: `url(${imageUrl})`
       }}
     />
     <div className='collection-footer'>
