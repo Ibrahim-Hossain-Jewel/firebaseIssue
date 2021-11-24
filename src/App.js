@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePage from './page/homepage.component';
+import HomePage from './page/homepage/homepage.component';
 import ShopPage from './page/shop/shop.component';
 import { Route, Switch } from 'react-router-dom';
 

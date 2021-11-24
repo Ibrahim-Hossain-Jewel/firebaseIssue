@@ -1,8 +1,8 @@
 import React from "react";
 
-import SHOP_DATA from "./shop.data.js";
+import SHOP_DATA from "./shop.data";
 
-import CollectionPreview from "../../components/collection-preview/collection-preview";
+import CollectionPreview from "../../components/collection-preview/collection-preview.component";
 
 //file name and folder name never be as same.
 
@@ -10,9 +10,11 @@ class ShopPage extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            Collection: SHOP_DATA
+            Collection: SHOP_DATA,
         }
     }
+
+
     render(){
         //So you have to use extra div for each map() method execution;
         //destructured property must be according to origin collection
