@@ -1,4 +1,5 @@
 section: [
+    
                 {
                     title: 'Hats',
                     imageUrl: 'https://th.bing.com/th/id/OIP.XNtLT5kBTncNwGeMypl8IwHaEI?pid=ImgDet&rs=1',
