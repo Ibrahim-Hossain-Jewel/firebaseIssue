@@ -45,6 +45,7 @@ class Directory extends React.Component{
             ]
         }
     }
+    
     render(){
         return(
             <div className = "menu-directory" >
@@ -56,7 +57,6 @@ class Directory extends React.Component{
             </div>
         )
     }
-
 }
 
 export default Directory;
