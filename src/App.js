@@ -14,10 +14,10 @@ class App extends React.Component{
       currentUser: null
     }
   }
-  unSubscript = null;
+  unSubscriptFormAuth = null;
 
   componentDidMount(){
-    this.unSubscript = auth.onAuthStateChanged((user)=>{
+    this.unSubscriptFormAuth = auth.onAuthStateChanged((user)=>{
       this.setState({currentUser: user});
       console.log(user);
     });
