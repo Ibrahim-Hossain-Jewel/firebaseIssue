@@ -5,30 +5,31 @@ import HomePage from './page/homepage/homepage.component';
 import ShopPage from './page/shop/shop.component';
 import SignInAndSignUp from './page/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      currentUser: null
+      currentUser : null
     }
   }
-  unSubscriptFormAuth = null;
+  unSubscribeFormAuth = null; //this unSubscribeFormAuth use to close subscription from the google firebase. if you want to use this class variable in that time you must need to call the this object.
 
+  //Now call the componentlifecycle method.
   componentDidMount(){
-    this.unSubscriptFormAuth = auth.onAuthStateChanged((user)=>{
-      this.setState({currentUser: user});
-      console.log(user);
+    this.unSubscribeFormAuth =  auth.onAuthStateChanged( async user =>{
+      createUserProfileDocument(user);
     });
   }
+  //componentWillUnmount() this life cycle method will be unSubscribe the application from the firebase.
   componentWillUnmount(){
-    this.unSubscriptFormAuth();
+    this.unSubscribeFormAuth();
   }
   render(){
     return(
       <div>
-        <Header currentUser = { this.state.currentUser } />
+        <Header currentUser={this.state.currentUser} />
         <Switch>
           <Route exact path = '/' component = {HomePage} />
           <Route path = '/shop' component = {ShopPage} />

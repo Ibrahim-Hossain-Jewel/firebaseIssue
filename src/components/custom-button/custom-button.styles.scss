@@ -7,8 +7,16 @@
     cursor: pointer;
     margin-top: 10px;
     &:hover{
-        background-color: white;
-        color: black;
-        border: 1px solid black;
+        background-color: #2a2929;
+        color: white;
+    };
+    &.google-sign-in{
+        background-color: #4285F4;
+        color: white;
+        &:hover{
+            background-color: #103981;
+            border: none;
+        }
     }
+
 }
