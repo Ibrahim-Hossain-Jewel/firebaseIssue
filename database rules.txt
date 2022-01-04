@@ -1,0 +1,21 @@
+Default Rules are below!
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if
+          request.time < timestamp.date(2022, 1, 22);
+    }
+  }
+}
+
+//Why changing this segment because the firebase.store return two objects but it's doesn't support the onSnapshot() method and other one. to make support able you have to change the rules version from that.
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write;
+    }
+  }
+}
