@@ -16,14 +16,22 @@ class App extends React.Component{
   unSubscribeFormAuth = null; //this unSubscribeFormAuth use to close subscription from the google firebase. if you want to use this class variable in that time you must need to call the this object.
 
   //Now call the componentlifecycle method.
-
+  
   componentDidMount(){
     this.unSubscribeFormAuth =  auth.onAuthStateChanged( async userAuth =>{
+      //Retrive data from database and store it into the application state.
         if(userAuth){
           const userRef = await createUserProfileDocument(userAuth);
-          userRef.onSnapshot(snapShot => {
-            console.log(snapShot);
+          this.setState({
+            currentUser: {
+              id: userRef.id,
+              ...userRef.data()
+            }
+          }, () =>{
+            console.log(this.state);
           });
+        }else{
+          this.state = null;
         }
   }
     )
